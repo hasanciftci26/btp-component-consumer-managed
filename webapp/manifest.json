@@ -1,0 +1,139 @@
+{
+    "_version": "1.59.0",
+    "sap.app": {
+        "id": "com.ndbs.reuseconsumerui",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.11.5",
+            "toolsId": "f8d2d3ac-da84-4e0c-83a9-18781ee8b8ea"
+        },
+        "dataSources": {
+            "uiDataSource": {
+                "uri": "./model/uiModel.json",
+                "type": "JSON"
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.120.1",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.f": {},
+                "sap.suite.ui.generic.template": {},
+                "sap.ui.comp": {},
+                "sap.ui.generic.app": {},
+                "sap.ui.table": {},
+                "sap.ushell": {}
+            },
+            "components": {
+                "com.ndbs.reusecomponentui": {
+                    "lazy": false
+                }
+            }
+        },
+        "componentUsages": {
+            "customerTableComponent": {
+                "name": "com.ndbs.reusecomponentui",
+                "settings": {
+                    "companyName": "Alfreds"
+                }
+            }
+        },
+        "resourceRoots": {
+            "com.ndbs.reusecomponentui": "../c2b54a93-95b1-4e54-9ccd-77c428e6ff0f.comndbsreusecomponentui.comndbsreusecomponentui-0.0.1"
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "com.ndbs.reuseconsumerui.i18n.i18n"
+                }
+            },
+            "ui": {
+                "dataSource": "uiDataSource",
+                "preload": true,
+                "type": "sap.ui.model.json.JSONModel",
+                "settings": {
+                    "defaultBindingMode": "TwoWay"
+                }
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async": true,
+                "viewPath": "com.ndbs.reuseconsumerui.view",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "clearControlAggregation": false
+            },
+            "routes": [
+                {
+                    "name": "RouteHomepage",
+                    "pattern": ":?query:",
+                    "target": [
+                        "TargetHomepage"
+                    ]
+                }
+            ],
+            "targets": {
+                "TargetHomepage": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "Homepage",
+                    "viewName": "Homepage"
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "com.ndbs.reuseconsumerui.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "App"
+        }
+    },
+    "sap.cloud": {
+        "public": true,
+        "service": "comndbsreuseconsumerui"
+    }
+}
